@@ -53,6 +53,14 @@ export default class App extends Component {
         })
     }
 
+    removeContact = id => {
+        this.setState(prevState => {
+            return {
+                contacts: prevState.contacts.filter(contact => contact.id !== id)
+            }
+        })
+    }
+
     changeFilter = filter => {
         this.setState({ filter: filter.target.value })
     }
@@ -60,14 +68,6 @@ export default class App extends Component {
     getVisibleContacts = () => {
         return this.state.contacts.filter(contact =>
             contact.name.toLocaleLowerCase().includes(this.state.filter.toLocaleLowerCase()))
-    }
-
-    removeContact = id => {
-        this.setState(prevState => {
-            return {
-                contacts: prevState.contacts.filter(contact => contact.id !== id)
-            }
-        })
     }
 
     render() {
