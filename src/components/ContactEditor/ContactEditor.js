@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import './ContactEditor.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './ContactEditor.css';
+import { connect } from 'react-redux';
+import contactsActions from '../../redux/contacts/contacts-actions';
 
-export default class ContactEditor extends Component {
+class ContactEditor extends Component {
     static = {
         onAddContact: PropTypes.func.isRequired,
     }
@@ -58,3 +60,9 @@ export default class ContactEditor extends Component {
     }
 
 }
+
+const mapDispatchToProps = dispatch => ({
+    onAddContact: (text) => dispatch(contactsActions.addContact(text))
+})
+
+export default connect(null, mapDispatchToProps)(ContactEditor)
