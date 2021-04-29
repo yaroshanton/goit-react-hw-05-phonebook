@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import contactReducer from './contacts/contact-reducer'
 
